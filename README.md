@@ -74,10 +74,8 @@ sudo apt-get install -y build-essential cmake python3-dev libsqlite3-dev \
 
 ### 3. Configure ns-3
 ```bash
-cd ns-3-dev
 ./ns-3-dev/ns3 configure --build-profile=optimized --enable-examples --enable-tests
-./ns3 build
-cd ..
+./ns-3-dev/ns3 build
 ```
 
 ### 4. Install Python Dependencies
