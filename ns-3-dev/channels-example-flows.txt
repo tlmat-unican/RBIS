@@ -1,0 +1,8 @@
+Flow ID: 1 Src Addr 1.0.0.2 Dst Addr 7.0.0.2 Src Port 49153 Dst Port 1234
+Tx Packets: 1000
+Rx Packets: 980
+Lost Packets: 9
+Throughput: 1.00352 Mbps
+
+Mean delay:  11.7385
+Mean jitter:  0.0459913 ms
