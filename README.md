@@ -10,7 +10,7 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [DRL Algorithms](#drl-algorithms)
-- [Environment Types](#environment-types)
+- [Environment](#environment)
 - [Simulation Parameters](#simulation-parameters)
 
 ## Overview
@@ -21,8 +21,8 @@ This project includes a **drift-plus-penalty algorithm (DPPA)** scheduler implem
 
 ### Key Capabilities
 - Real-time DRL-based MAC scheduling for 5G NR networks
-- Support for multiple DRL algorithms (PPO, DQN)
-- Multiple environment types (Basic, ISAC - Integrated Sensing and Communications)
+- Support for multiple DRL algorithms (e.g., PPO, DQN) deployed as xApps
+- Integration of Integrated Sensing and Communications (ISAC) to enhance decision-making
 - 3GPP-compliant traffic models for various application types
 - Building-aware propagation models and channel conditions
 - Comprehensive performance metrics and visualization tools
@@ -163,8 +163,6 @@ model = PPO(
 )
 ```
 
-**Best for:** Continuous state-action spaces, stable training
-
 ### Deep Q-Network (DQN)
 DQN uses a neural network to approximate the Q-function for discrete action spaces.
 
@@ -183,29 +181,16 @@ model = DQN(
 )
 ```
 
-**Best for:** Discrete action spaces, sample efficiency
+## Environment
 
-## Environment Types
-
-### Basic Environment
 - **State Space**: `[MCS, Queue, Obstacle] × num_ues`
   - MCS: Modulation and Coding Scheme (0-2)
   - Queue: Buffer occupancy level (0-2)
   - Obstacle: Binary indicator (0-1)
 - **Action Space**: 
-  - PPO: `MultiDiscrete([4, 1, 1, ...])` for `v`, `w_q`, `w_g` per UE
-  - DQN: `Discrete(4)` for parameter `v` only
-- **Focus**: Basic scheduling without sensing capabilities
-
-### Integrated Sensing and Communications (ISAC) Environment
-- **State Space**: Enhanced with sensing information
-- **Action Space**: Similar to Basic but with additional sensing-aware parameters
-- **Focus**: Enhance scheduling with sensing
-
-### Key Parameters
-- **v**: Priority adjustment factor
-- **w_q**: Queue weight
-- **w_g**: Goodput weight
+    - v: Priority adjustment factor
+    - w_q: Queue weight
+    - w_g: Throughput weight
 
 ## Simulation Parameters
 
